@@ -44,8 +44,15 @@
     </style>
 </head>
 <body>
+    <div>
+        @if (Session::has('message'))
+            <p>{{Session::get('message')}}</p>
+            
+        @endif
+    </div>
     <h2 style="text-align: center;">Student Registration Form</h2>
-    <form action="your-action-url" method="post">
+    <form action="{{route('student.save')}}" method="post">
+        @csrf
         <label for="username">Username:</label>
         <input type="text" id="username" name="username" placeholder="Enter username" required>
 
